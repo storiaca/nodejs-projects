@@ -15,5 +15,6 @@ export const createUserSchema = object({
     ),
   }).refine((data) => data.password === data.passwordConfirmation, {
     message: "Passwords do not match",
+    path: ["passwordConfirmation"],
   }),
 });
