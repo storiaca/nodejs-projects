@@ -1,9 +1,34 @@
 import jwt from "jsonwebtoken";
 import config from "config";
+import { error } from "console";
 
 const privateKey = config.get<string>("privateKey");
 const publicKey = config.get<string>("publicKey");
 
-function signJwt() {}
+export function signJwt(object: Object, options?: jwt.SignOptions | undefined) {
+  return jwt.sign(object, privateKey, {
+    ...(options && options),
+    algorithm: "RS256",
+  });
+}
 
-function verifyJwt() {}
+export function verifyJwt(token: string) {
+  try {
+    const decoded = jwt.verify(token, publicKey);
+    return {
+      valid: true,
+      expired: false,
+      decoded,
+    };
+  } catch (e: unknown) {
+    return {
+      valid: false,
+      expired:
+        typeof e === "object" &&
+        e !== null &&
+        "message" in e &&
+        (e as any).message === "jwt expired",
+      decoded: null,
+    };
+  }
+}
