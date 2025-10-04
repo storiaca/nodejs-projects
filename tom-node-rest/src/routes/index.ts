@@ -9,6 +9,11 @@ function routes(app: Express) {
   });
 
   app.post("/api/users", validateResource(createUserSchema), createUserHandler);
+  app.post(
+    "/api/sessions",
+    validateResource(createUserSchema),
+    createSessionHandler
+  );
 }
 
 export default routes;
