@@ -4,7 +4,7 @@ import { createSession } from "../service/session.service";
 import { signJwt } from "../utils/jwt.utils";
 import config from "config";
 
-export async function createUserSessionhanlder(req: Request, res: Response) {
+export async function createUserSessionHanlder(req: Request, res: Response) {
   // Validate the user's password
   const user = await validatePassword(req.body);
 
@@ -29,3 +29,5 @@ export async function createUserSessionhanlder(req: Request, res: Response) {
   // return access & refresh tokens
   res.send({ accessToken, refreshToken });
 }
+
+export async function getUserSessionsHandler(req: Request, res: Response) {}
