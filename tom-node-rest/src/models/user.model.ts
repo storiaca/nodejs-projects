@@ -3,6 +3,12 @@ import bcrypt from "bcrypt";
 import config from "config";
 import { boolean } from "zod";
 
+export interface UserInput {
+  email: string;
+  name: string;
+  password: string;
+}
+
 export interface UserDocument extends mongoose.Document {
   email: string;
   name: string;
