@@ -13,4 +13,9 @@ app.get("/", (req, res) => {
   res.sendStatus(201)
 });
 
+app.get('/dashboard', (req, res) => {
+  console.log('Ohh now I hit the /dahsboard endpoint');
+  res.send('hi')  
+})
+
 app.listen(PORT, () => console.log(`Server has started on: ${PORT}`));
