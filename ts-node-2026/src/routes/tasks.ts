@@ -27,3 +27,15 @@ taskRouter.post("/", (req, res) => {
   const completed = req.body.completed;
   res.json({ task: { title: title, completed } });
 });
+
+taskRouter.put("/:id", (req, res) => {
+  const taskId = req.params.id;
+  res.json({
+    task: { id: taskId, title: req.body.title, completed: req.body.completed },
+  });
+});
+
+taskRouter.delete("/:id", (req, res) => {
+  const taskId = req.params.id;
+  res.json({ message: `Task wit id ${taskId} deleted` });
+});
