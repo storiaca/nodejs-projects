@@ -31,7 +31,7 @@ router.post("/register", (req, res) => {
       {
         id: result.lastInsertRowid,
       },
-      process.env.JWR_SECRET,
+      process.env.JWT_SECRET,
       { expiresIn: "24h" },
     );
     res.json({ token });
