@@ -1,4 +1,5 @@
 import express from "express";
+import { auth } from "../middleware/auth";
 
 export const taskRouter = express.Router();
 
@@ -22,7 +23,7 @@ taskRouter.get("/:id", (req, res) => {
   res.json({ task: { id: taskId, title: `Task ${taskId}`, completed: false } });
 });
 
-taskRouter.post("/", (req, res) => {
+taskRouter.post("/", auth, (req, res) => {
   const title = req.body.title;
   const completed = req.body.completed;
   res.json({ task: { title: title, completed } });
