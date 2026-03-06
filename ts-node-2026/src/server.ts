@@ -4,6 +4,11 @@ import { taskRouter } from "./routes/tasks";
 
 const app = express();
 
+// Middleware
+app.use(express.json());
+// extend 'true' allows rich object and arrays to be encoded
+app.use(express.urlencoded({ extended: true }));
+
 // Set template engine
 app.set("view engine", "ejs");
 // Middleware for static files
@@ -16,7 +21,7 @@ app.get("/", (req, res) => {
   res.render("index", { text: "Hello from EJS!" });
 });
 
-app.use("/tasks", taskRouter)
+app.use("/tasks", taskRouter);
 
 app.listen(4000, () => {
   console.log("Express is running on 4000 port");
