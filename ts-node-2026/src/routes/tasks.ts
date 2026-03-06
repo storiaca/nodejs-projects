@@ -3,12 +3,19 @@ import express from "express";
 export const taskRouter = express.Router();
 
 taskRouter.get("/", (req, res) => {
-  res.json({ tasks: [{ id: 1, title: "Task 1", completed: false }] });
+  const search = req.query.search as string | undefined;
+  if (search) {
+    return res.json({
+      tasks: [{ id: 1, title: `${search}`, completed: false }],
+    });
+  }
+  res.json({
+    tasks: [
+      { id: 1, title: "Task 1", completed: false },
+      { id: 2, title: "Task 2", completed: false },
+    ],
+  });
 });
-
-// taskRouter.post("/", (req, res) => {
-//   res.json({ tasks: [{ id: 2, title: "Task 2", completed: false }] });
-// });
 
 taskRouter.get("/:id", (req, res) => {
   const taskId = req.params.id;
