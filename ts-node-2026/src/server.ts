@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import { taskRouter } from "./routes/tasks";
+import { logger } from "./middleware/logger";
 
 const app = express();
 
@@ -8,6 +9,7 @@ const app = express();
 app.use(express.json());
 // extend 'true' allows rich object and arrays to be encoded
 app.use(express.urlencoded({ extended: true }));
+app.use(logger);
 
 // Set template engine
 app.set("view engine", "ejs");
