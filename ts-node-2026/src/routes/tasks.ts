@@ -23,7 +23,9 @@ taskRouter.get("/:id", (req, res) => {
   res.json({ task: { id: taskId, title: `Task ${taskId}`, completed: false } });
 });
 
-taskRouter.post("/", auth, (req, res) => {
+taskRouter.use(auth)
+
+taskRouter.post("/", (req, res) => {
   const title = req.body.title;
   const completed = req.body.completed;
   res.json({ task: { title: title, completed } });
