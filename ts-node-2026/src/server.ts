@@ -1,8 +1,10 @@
+import "source-map-support/register"
 import express from "express";
 import path from "path";
 import { taskRouter } from "./routes/tasks";
 import cors from "cors"
 import morgan from "morgan"
+import errorHanlder from "./middleware/errorHandler";
 
 const app = express();
 
@@ -27,6 +29,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/tasks", taskRouter);
+
+app.use(errorHanlder)
 
 app.listen(4000, () => {
   console.log("Express is running on 4000 port");

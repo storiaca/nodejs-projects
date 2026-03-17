@@ -19,6 +19,7 @@ taskRouter.get("/", (req, res) => {
 });
 
 taskRouter.get("/:id", (req, res) => {
+ // throw new Error("Something went wrong")
   const taskId = req.params.id;
   res.json({ task: { id: taskId, title: `Task ${taskId}`, completed: false } });
 });
