@@ -24,7 +24,7 @@ const PORT = 5555;
 //   res.json({ message: 'Hello World!'})
 // })
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Server running on Port: ${PORT}`);
 });
 

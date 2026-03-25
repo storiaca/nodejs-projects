@@ -5,4 +5,3 @@ const router = express.Router();
 router.post("/register", register);
 
 export default router
-// 1:01:26
