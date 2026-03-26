@@ -30,7 +30,7 @@ const register = async (req, res) => {
   });
 
   // Generate JWT Token
-  const token = generateToken(user.id, res)
+  const token = generateToken(user.id, res);
 
   res.status(201).json({
     status: "success",
@@ -40,7 +40,7 @@ const register = async (req, res) => {
         name: name,
         email: email,
       },
-      token
+      token,
     },
   });
 };
@@ -54,22 +54,18 @@ const login = async (req, res) => {
   });
 
   if (!user) {
-    return res
-      .status(401)
-      .json({ error: "Invalid email or password" });
+    return res.status(401).json({ error: "Invalid email or password" });
   }
 
   // verify password
-  const isPasswordValid = await bcrypt.compare(password, user.password)
+  const isPasswordValid = await bcrypt.compare(password, user.password);
 
-   if (!isPasswordValid) {
-    return res
-      .status(401)
-      .json({ error: "Invalid email or password" });
+  if (!isPasswordValid) {
+    return res.status(401).json({ error: "Invalid email or password" });
   }
 
   // Generate JWT Token
-  const token = generateToken(user.id, res)
+  const token = generateToken(user.id, res);
 
   res.status(201).json({
     status: "success",
@@ -81,6 +77,17 @@ const login = async (req, res) => {
       token,
     },
   });
-}
+};
 
-export { register, login };
+const logout = async (req, res) => {
+  res.cookie("jwt", "", {
+    httpOnly: true,
+    expires: new Date(0)
+  })
+  res.status(200).json({
+    status: "success",
+    message: "Logged out succefully",
+  });
+};
+
+export { register, login, logout };
