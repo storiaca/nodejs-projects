@@ -1,5 +1,5 @@
 import express from "express";
-import { addToWatchlist, removeFromWatchlist } from "../controllers/watchlistCotroller.js";
+import { addToWatchlist, removeFromWatchlist, updateWatchlistItem } from "../controllers/watchlistCotroller.js";
 import { authMiddleware } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
@@ -8,7 +8,10 @@ router.use(authMiddleware)
 
 router.post("/", addToWatchlist);
 
-// {{bseUrl}}/watchlist/:id
+// DELETE: {{baseUrl}}/watchlist/:id
 router.delete("/:id", removeFromWatchlist)
+
+// UPDATE: {{baseUrl}}/watchlist/:id
+router.put("/:id", updateWatchlistItem)
 
 export default router
