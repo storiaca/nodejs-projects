@@ -7,7 +7,6 @@ import movieRoutes from "./routes/movieRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import watchlistRoutes from "./routes/watchlistRoutes.js";
 
-
 connectDB();
 
 const app = express();
