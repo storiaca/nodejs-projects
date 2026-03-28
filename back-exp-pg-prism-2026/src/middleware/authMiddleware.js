@@ -9,7 +9,7 @@ export const authMiddleware = async (req, res, next) => {
 
   if (req.headers.authorization && req.authorization.startsWith("Bearer")) {
     token = req.headers.authorization.split(" ")[1]; // ["Bearer", "token_string"]
-  } else if (req.cookies.jwt) {
+  } else if (req.cookies?.jwt) {
     token = req.cookies.jwt;
   }
 
@@ -31,6 +31,12 @@ export const authMiddleware = async (req, res, next) => {
       .status(401)
       .json({ error: "User no longer exists" });
     }
-  } catch (error) {}
-  next();
+
+    req.user = user
+    next();
+  } catch (error) {
+    return res
+      .status(401)
+      .json({ error: "Not authorized, token failed" });
+  }
 };
