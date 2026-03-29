@@ -15,5 +15,7 @@ const addToWatchlistSchema = z.object({
     .min(1, "Ratin must be between 1 and 10")
     .max(10, "Ratin must be between 1 and 10")
     .optional(),
-  notes: z.string().optional()
+  notes: z.string().optional(),
 });
+
+export { addToWatchlistSchema };
