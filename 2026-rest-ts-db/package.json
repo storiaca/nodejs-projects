@@ -8,8 +8,8 @@
     "test:watch": "jest --watch",
     "lint": "eslint",
     "build": "tsc",
-    "start": "node --watch ./dist/index.js",
-    "dev": "tsc-watch --onSuccess \"node dist/index.js\""
+    "start": "node --watch --env-file=.env ./dist/index.js",
+    "dev": "tsc-watch --onSuccess \"node --env-file=.env dist/index.js\""
   },
   "keywords": [],
   "author": "",
