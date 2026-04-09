@@ -1,7 +1,7 @@
 import {createServer} from "./server"
-
+import config from "./config";
 const server = createServer()
 
-server.listen(3200, () => {
-  console.log(`api runnig on port 3200`);
+server.listen(config.port, () => {
+  console.log(`api runnig on port ${config.port}`);
 })
