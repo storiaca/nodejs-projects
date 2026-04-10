@@ -1,10 +1,10 @@
-import express, {Router} from "express"
-// import tasks from "./tasks"
-// import projects from "./projetcs/projects"
+import express, { Router } from "express";
+import tasks from "./tasks/index";
+import projects from "./projects/index";
 
 const v1: Router = express.Router();
 
-// v1.use("/tasks", tasks)
-// v1.use("/projects", projects)
+v1.use("/tasks", tasks);
+v1.use("/projects", projects);
 
-export default v1
+export default v1;
