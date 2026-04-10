@@ -8,6 +8,6 @@ export const getTask = async (
   req: Request,
   res: Response,
 ) => {
- // throw new Error("Oops");
+  // throw new Error("Oops");
   res.status(200).json({ id: 1, name: "Task 1" });
 };
