@@ -4,7 +4,7 @@ GET http://localhost:3200/health HTTP/1.1
 ### GET task
 GET http://localhost:3200/v1/tasks HTTP/1.1
 
-### GET tas bt ID
+### GET task by ID
 GET http://localhost:3200/v1/tasks/1 HTTP/1.1
 
 ### GET projects
