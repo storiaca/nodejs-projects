@@ -4,7 +4,9 @@ class CustomError<C extends string> extends Error {
   code?: C;
 
   constructor({
-    message, statusCode, code,
+    message,
+    statusCode,
+    code,
   }: {
     message: string;
     statusCode: number;
@@ -13,8 +15,8 @@ class CustomError<C extends string> extends Error {
     super();
     this.message = message;
     this.statusCode = statusCode;
-    this.code = code
+    this.code = code;
   }
 }
 
-export default CustomError
+export default CustomError;
