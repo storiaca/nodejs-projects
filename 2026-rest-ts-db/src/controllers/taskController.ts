@@ -9,10 +9,10 @@ export const getTask = async (
   req: Request,
   res: Response,
 ) => {
-  throw new EntityNotFoundError({
-    message: "Entity not found",
-    statusCode: 404,
-    code: "ERR_NF"
-  });
+  // throw new EntityNotFoundError({
+  //   message: "Entity not found",
+  //   statusCode: 404,
+  //   code: "ERR_NF"
+  // });
   res.status(200).json({ id: 1, name: "Task 1" });
 };
