@@ -9,7 +9,10 @@
     "lint": "eslint",
     "build": "tsc",
     "start": "node --watch --env-file=.env ./dist/index.js",
-    "dev": "tsc-watch --onSuccess \"node --env-file=.env dist/index.js\""
+    "dev": "tsc-watch --onSuccess \"node --env-file=.env dist/index.js\"",
+    "prisma:generate": "npx prisma generate",
+    "migration:create": "npx prisma migrate dev --create-only",
+    "migrate": "npx prisma migrate deploy"
   },
   "keywords": [],
   "author": "",
@@ -38,6 +41,7 @@
     "typescript-eslint": "^8.58.0"
   },
   "dependencies": {
+    "@prisma/client": "^7.7.0",
     "cors": "^2.8.6",
     "express": "^5.2.1",
     "jiti": "^2.6.1",

@@ -27,3 +27,16 @@ model Task {
   @@index([user_id])
   @@map("tasks")
 }
+
+model Project {
+  id            String @id @default(cuid())
+  user_id       String @db.VarChar(36) // uuid field
+  name          String
+  description   String? @db.Text
+  created_at    DateTime @default(now())
+  updated_at    DateTime  @updatedAt
+  tasks         Task[]
+
+  @@index([user_id])
+  @@map("projects")
+}
