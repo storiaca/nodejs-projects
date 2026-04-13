@@ -1,5 +1,5 @@
-import {createServer} from "./server"
-import config from "./config";
+import {createServer} from "./server.js"
+import config from "./config.js";
 const server = createServer()
 
 server.listen(config.port, () => {

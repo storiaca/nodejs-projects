@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import prisma from "../prisma-client";
-import EntityNotFoundError from "../errors/EntityNotFoundError";
+import prisma from "../prisma-client.js";
+import EntityNotFoundError from "../errors/EntityNotFoundError.js";
 
 export const listProjects = async (req: Request, res: Response) => {
   const projects = await prisma.project.findMany();
