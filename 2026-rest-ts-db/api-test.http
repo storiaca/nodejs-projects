@@ -11,7 +11,7 @@ GET http://localhost:3200/v1/tasks/cmnx1g3ri00002v7kck4vmdzh HTTP/1.1
 GET http://localhost:3200/v1/projects HTTP/1.1
 
 ### GET project by ID
-GET http://localhost:3200/v1/projects/1 HTTP/1.1
+GET http://localhost:3200/v1/projects/cmnx1llms00012v7kq3k6dt7e HTTP/1.1
 
 ### GET project's tasks
 GET http://localhost:3200/v1/projects/1/tasks HTTP/1.1
