@@ -7,3 +7,9 @@
 ## Faker js dev
 
 <https://fakerjs.dev/>
+
+## Create token
+
+```bash
+node --env-file=.env --loader ts-node/esm src/issue-test-token.ts
+```
