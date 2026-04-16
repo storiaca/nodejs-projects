@@ -1,11 +1,13 @@
 ### Healt check
 GET http://localhost:3200/health HTTP/1.1
 
-### GET task
+### GET tasks
 GET http://localhost:3200/v1/tasks HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5ZmFmODdhYy0zOGE1LTQxZTYtYmU0Yy00M2I1OGY4ZDQ2Y2UiLCJpYXQiOjE3NzYzNTU1MjMsImV4cCI6MTc3Njk2MDMyMywiaXNzIjoidGFzay1tYW5hZ2VyLWFwcCJ9.lfdt3Qy3XBqMvX25HYaRBcxcTrooftLTK3Lk9zPJXCw
 
 ### GET task by ID
-GET http://localhost:3200/v1/tasks/cmnx1g3ri00002v7kck4vmdzh HTTP/1.1
+GET http://localhost:3200/v1/tasks/cmnzsgpec0001hogpzntcruiy HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5ZmFmODdhYy0zOGE1LTQxZTYtYmU0Yy00M2I1OGY4ZDQ2Y2UiLCJpYXQiOjE3NzYzNTU1MjMsImV4cCI6MTc3Njk2MDMyMywiaXNzIjoidGFzay1tYW5hZ2VyLWFwcCJ9.lfdt3Qy3XBqMvX25HYaRBcxcTrooftLTK3Lk9zPJXCw
 
 ### GET projects
 GET http://localhost:3200/v1/projects HTTP/1.1

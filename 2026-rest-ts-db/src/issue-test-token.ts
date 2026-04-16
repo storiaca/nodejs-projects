@@ -6,7 +6,7 @@ const payload = {
 }
 
 const token = jwt.sign(payload, config.appSecret, {
-  expiresIn: "1h",
+  expiresIn: "7d",
   issuer: "task-manager-app"
 })
 

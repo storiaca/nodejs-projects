@@ -3,7 +3,11 @@ import EntityNotFoundError from "../errors/EntityNotFoundError.js";
 import prisma from "../prisma-client.js";
 
 export const listTasks = async (req: Request, res: Response) => {
-  const tasks = await prisma.task.findMany();
+  const tasks = await prisma.task.findMany({
+    where: {
+      user_id: req.auth?.payload.sub
+    }
+  });
   res.status(200).json({ tasks });
 };
 
@@ -11,7 +15,8 @@ export const getTask = async (req: Request, res: Response) => {
   
   const task = await prisma.task.findUnique({
     where: {
-      id: req.params.id as string
+      id: req.params.id as string,
+      user_id: req.auth?.payload.sub
     }
   })
 
