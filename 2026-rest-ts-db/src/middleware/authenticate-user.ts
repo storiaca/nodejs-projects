@@ -31,3 +31,4 @@ const authenticateUser = (req: Request, res: Response, next: NextFunction) => {
 };
 
 export default authenticateUser;
+// 58:50
