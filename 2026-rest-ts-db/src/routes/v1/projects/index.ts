@@ -1,5 +1,9 @@
 import express, { Router } from "express";
-import { listProjects, getProject, listProjectTasks } from "../../../controllers/projectController.js";
+import {
+  listProjects,
+  getProject,
+  listProjectTasks,
+} from "../../../controllers/projectController.js";
 import authenticateUser from "../../../middleware/authenticate-user.js";
 
 const projects: Router = express.Router();
