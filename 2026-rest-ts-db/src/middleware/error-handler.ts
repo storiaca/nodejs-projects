@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import config from "../config.js";
 import { getErrorMessage } from "../utils.js";
 import CustomError from "../errors/CustomError.js";
+import { UnauthorizedError } from "express-oauth2-jwt-bearer";
 
 export default function errorHandler(
   error: unknown,
@@ -23,7 +24,17 @@ export default function errorHandler(
     });
     return;
   }
-// 36:24
+
+  if (error instanceof UnauthorizedError) {
+    res.status(error.statusCode).json({
+      error: {
+        message: error.message,
+        code: "code" in error ? error.code : "ERR_AUTH",
+      },
+    });
+    return;
+  }
+
   res.status(500).json({
     error: {
       message:
