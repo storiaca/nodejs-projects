@@ -7,8 +7,6 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-taskRouter;
-
 app.use(cors());
 app.use(morgan("tiny"));
 
