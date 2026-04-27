@@ -3,6 +3,7 @@ import cors from "cors";
 import morgan from "morgan";
 import { taskRouter } from "./routes/task.routes.js";
 import { userRouter } from "./routes/user.routes.js";
+import { projectRouter } from "./routes/project.routes.js";
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/tasks", taskRouter);
 app.use("/users", userRouter);
+app.use("/projects", projectRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
