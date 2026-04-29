@@ -6,6 +6,15 @@ POST http://localhost:4444/api/users HTTP/1.1
 Content-Type: application/json
 
 {
-  "email": "pera@gmail.com",
-  "name": "Pera Peric"
+  "email": "marko@gmail.com",
+  "name": "Marko Milanovic"
+}
+
+### Create project
+POST http://localhost:4444/api/projects HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Dashboard",
+  "ownerId": "cmok2wd4l000110jxkhlzkrlj"
 }
