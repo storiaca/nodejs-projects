@@ -9,6 +9,10 @@ export const createProjectController = async (req: Request, res: Response) => {
   try {
     const { name, ownerId } = req.body;
 
+    if (!name) {
+      return res.status(400).json({ error: "Name is required" });
+    }
+
     const project = await createProject({ name, ownerId });
 
     res.status(201).json(project);
