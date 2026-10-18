@@ -1,0 +1,14 @@
+export class AppError extends Error {
+  readonly statusCode: number;
+  readonly details?: unknown;
+
+  constructor(statusCode: number, message: string, details?: unknown) {
+    super(message);
+    this.name = "AppError";
+    this.statusCode = statusCode;
+    this.details = details;
+  }
+}
+
+export const notFound = (resource: string) =>
+  new AppError(404, `${resource} not found`);

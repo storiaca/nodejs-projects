@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node --watch --env-file=.env ./dist/server.js",
+    "start": "node --env-file=.env ./dist/server.js",
     "dev": "tsc-watch --onSuccess \"node --watch --env-file=.env dist/server.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -37,5 +37,9 @@
     "prisma": "^7.8.0",
     "tsc-watch": "^7.2.0",
     "typescript": "^6.0.3"
+  },
+  "allowScripts": {
+    "@prisma/engines@7.8.0": true,
+    "prisma@7.8.0": true
   }
 }
